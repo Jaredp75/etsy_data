@@ -9,7 +9,9 @@ console.log(data);
 // 1: Show me how to calculate the average price of all items.
 function question1 () {
 // Answer:
-let priceAverage = function(data) {
+
+
+const priceAverage = function(data) {
   var price = 0,
       average;
 
@@ -24,65 +26,46 @@ console.log(priceAverage(data));
 }
 
 
-//function lookUpProfile(data){
-//  for (let i = 0; i < data.length; i++) {
-//    if (data[i].price === price) {
-//      return price[i]
-//    }
-//  }
-//}
-
-
-
-
-
-
-//function average (data:price) {
-
-//  var total = 0;
-//  for(var i = 0; i < data.length; i++) {
-//    total = total + data:price[i];
-//}
-
-//var aver = total / data.length;
-
-//return aver
-
-//}
-
-//console.log(aver)
-
-
-
-//let sum = values.reduce((previous, current) => current += previous);
-//let avg = sum / values.length;
-
-//let length = price.length;
-//let sum = 0;
-//for ( let i = 0; i < price.length; i++){
-//    let avg = (price[i] / price.length) * price.length
-
-//    sum += price[i];
-//}
-
-//console.log(avg);
-
-
-
-
-
 
 // 2: Show me how to get an array of items that cost between $14.00 and $18.00 USD
 function question2 () {
   // Answer:
-}
+  let arrayOfItems = [];
+  	  for (let i = 0; i < data.length; i++){
+  	    if (data[i].price >= 14 && data[i].price <= 18){
+  	      arrayOfItems.push(data[i].title)
+  	    }
+  	  }
+  	  return console.log(arrayOfItems.join('\r\n'));
+  	}
+
+
+
+
+
+//const filterItems = data.filter(function(price){
+//  return data.price >= 14.00 && <= 18.00;
+//});
+//}
+
+
 
 
 
 // 3: Which item has a "GBP" currency code? Display it's name and price.
 function question3 () {
   // Answer:
-}
+  let GBPItem = "";
+  	  for (let i = 0; i < data.length; i++){
+  	    if (data[i].currency_code === "GBP"){
+  	      GBPItem += data[i].title + " costs " + data[i].price + " pounds."
+  	    }
+  	  }
+  	  return console.log(GBPItem);
+  	}
+
+
+
 
 
 // 4: Display a list of all items who are made of wood.
@@ -93,8 +76,14 @@ function question4 () {
 
 // 5: Which items are made of eight or more materials?
 //    Display the name, number of items and the items it is made of.
-function question5 () {
-  // Answer:
+function question5 (data) {
+  eightMaterials = []
+  data.map((item) =>{
+    if (item.materials.length >= 8){
+      eightMaterials.push(item.materials)
+    }
+  })
+  return eightMaterials
 }
 
 
