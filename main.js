@@ -71,24 +71,52 @@ function question3 () {
 // 4: Display a list of all items who are made of wood.
 function question4 () {
   // Answer:
-}
+  let woodItems = [];
+  	  for (let i = 0; i < data.length; i++){
+  	    if (data[i].materials.includes('wood')){
+  	      woodItems.push(data[i].title + " is made of wood")
+  	    }
+  	  }
+  	  return console.log(woodItems.join('\r\n'));
+  	}
+
+
 
 
 // 5: Which items are made of eight or more materials?
 //    Display the name, number of items and the items it is made of.
-function question5 (data) {
-  eightMaterials = []
-  data.map((item) =>{
-    if (item.materials.length >= 8){
-      eightMaterials.push(item.materials)
-    }
-  })
-  return eightMaterials
+function question5 () {
+  let manyMaterials = [];
+  	  for (let i = 0; i < data.length; i++){
+  	    if (data[i].materials.length >= 8){
+  	      manyMaterials.push(data[i].title + " has " + data[i].materials.length + " materials:")
+  	      for (let x = 0; x < data[i].materials.length; x++)
+  	      manyMaterials.push("-" + data[i].materials[x])
+  	    }
+  	  }
+  	  return console.log(manyMaterials.join('\r\n'));
+
 }
+
+//  eightMaterials = []
+//  data.map((item) =>{
+//    if (item.materials.length >= 8){
+//      eightMaterials.push(item.materials)
+//    }
+//  })
+//  return eightMaterials
+//}
 
 
 // 6: How many items were made by their sellers?
 // Answer:
 function question6 () {
   // Answer:
-}
+  let madePersonally = 0;
+  	  for (let i = 0; i < data.length; i++){
+  	    if (data[i].who_made === "i_did"){
+  	      madePersonally += 1;
+  	    }
+  	  }
+  	  return console.log(madePersonally + " items were made by their sellers.");
+  	}
